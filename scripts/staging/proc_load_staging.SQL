@@ -1,5 +1,11 @@
 /*
+stored procedure: Load staging layer
 
+Script Purpose: Loads data into 'staging' schema from external csv files
+1.Truncates tables before loading data.
+2.Uses the 'BULK INSERT' command to load data from csv files onto tables
+
+USAGE EX: EXEC staging.load_staging_tables;
 */
 
 CREATE OR ALTER PROCEDURE staging.load_staging_tables AS
