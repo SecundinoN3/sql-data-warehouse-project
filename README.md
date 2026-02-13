@@ -5,9 +5,9 @@ This project demonstrates my understanding of data warehousing and analytics sol
 
 (DATA ENGINEERING)
 
-Objective::: Develop a data warehouse using SQL Server for sales data, enabling analytucal reporting and informed decision making for BI.
+Objective: Develop a data warehouse using SQL Server for sales data, enabling analytucal reporting and informed decision making for BI.
 
-Specifics:::
+Specifics:
 -Data Sources: Two source systems (ERP and CRM) provided as CSV files
 -Data Quality: cleaned and resolved data quality issues prior to analysis
 -Integration: Combine both sources into a single, user-friendly dta model designed for analytical queries
@@ -18,7 +18,7 @@ Specifics:::
 
 BI: ANALYTICS & REPORTING (Data Analytics)
 
-Objective::: Develop SQL-based analytiscs to deliver detaield insights into:
+Objective: Develop SQL-based analytiscs to deliver detaield insights into:
 -Customer Behavior
 -Product Performance
 -Sales Trends
