@@ -1,3 +1,20 @@
+/*
+DDL SCRIPT: Create cleaning tables
+
+Script Purpose:
+    Creates tables in the 'cleaning' schema for storing transformed and 
+    standardized data from the staging layer.
+    
+    Operations performed:
+    1. Drops existing tables if they exist (using IF OBJECT_ID check)
+    2. Recreates tables with appropriate data types and constraints
+    3. Adds audit column (dwh_create_date) to track when records were loaded
+
+Notes:
+    - These tables hold cleaned/transformed data ready for dimensional modeling
+    - All tables include a dwh_create_date audit column with default GETDATE()
+*/
+
 
 IF OBJECT_ID('cleaning.crm_cust_info','U') IS NOT NULL
 	DROP TABLE cleaning.crm_cust_info;
