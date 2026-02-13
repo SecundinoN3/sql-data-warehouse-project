@@ -1,3 +1,21 @@
+/*
+stored procedure: Load cleaning layer
+
+Script Purpose:
+    This stored procedure loads data into the 'cleaning' schema by transforming 
+    and standardizing raw data from the 'staging' schema.
+    
+    Operations performed:
+    1. Truncates target tables in the 'cleaning' schema before loading
+    2. Transforms raw data (standardizing values, handling NULLs, deduplication)
+    3. Loads cleaned data into respective cleaning schema tables
+    4. Logs execution time for each table load
+
+PARAMETERS: None
+
+USAGE EX: EXEC cleaning.load_cleaning_tables;
+*/
+
 CREATE OR ALTER PROCEDURE cleaning.load_cleaning_tables AS
 BEGIN
 	DECLARE @start_time DATETIME, @end_time DATETIME, @batch_start_time DATETIME, @batch_end_time DATETIME;
