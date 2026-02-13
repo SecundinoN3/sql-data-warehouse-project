@@ -1,10 +1,9 @@
 /*
-===============================================================================
 Quality Checks
-===============================================================================
+
 Script Purpose:
-    This script performs various quality checks for data consistency, accuracy, 
-    and standardization across the 'cleaning' layer. It includes checks for:
+    Performs quality checks for data consistency, accuracy, 
+    and standardization across the 'cleaning' layer. Includes checks for:
     - Null or duplicate primary keys.
     - Unwanted spaces in string fields.
     - Data standardization and consistency.
@@ -13,8 +12,7 @@ Script Purpose:
 
 Usage Notes:
     - Run these checks after data loading cleaning Layer.
-    - Investigate and resolve any discrepancies found during the checks.
-===============================================================================
+    - Look and resolve any mistakes found during the checks.
 */
 
 
@@ -26,7 +24,6 @@ GROUP BY cst_id
 HAVING COUNT(*) > 1 OR cst_id IS NULL;
 
 -- Check for Unwanted Spaces
--- Expectation: No Results
 SELECT 
     cst_key 
 FROM cleaning.crm_cust_info
@@ -37,11 +34,8 @@ SELECT DISTINCT
     cst_marital_status 
 FROM cleaning.crm_cust_info;
 
--- ====================================================================
 -- Checking 'cleaning.crm_prd_info'
--- ====================================================================
 -- Check for NULLs or Duplicates in Primary Key
--- Expectation: No Results
 SELECT 
     prd_id,
     COUNT(*) 
@@ -50,14 +44,12 @@ GROUP BY prd_id
 HAVING COUNT(*) > 1 OR prd_id IS NULL;
 
 -- Check for Unwanted Spaces
--- Expectation: No Results
 SELECT 
     prd_name 
 FROM cleaning.crm_prd_info
 WHERE prd_name != TRIM(prd_name);
 
 -- Check for NULLs or Negative Values in Cost
--- Expectation: No Results
 SELECT 
     prd_cost 
 FROM cleaning.crm_prd_info
@@ -69,17 +61,13 @@ SELECT DISTINCT
 FROM cleaning.crm_prd_info;
 
 -- Check for Invalid Date Orders (Start Date > End Date)
--- Expectation: No Results
 SELECT 
     * 
 FROM cleaning.crm_prd_info
 WHERE prd_end_dt < prd_start_dt;
 
--- ====================================================================
 -- Checking 'cleaning.crm_sales_details'
--- ====================================================================
 -- Check for Invalid Dates
--- Expectation: No Invalid Dates
 SELECT 
     NULLIF(sls_due_dt, 0) AS sls_due_dt 
 FROM staging.crm_sales_details
@@ -89,7 +77,6 @@ WHERE sls_due_dt <= 0
     OR sls_due_dt < 19000101;
 
 -- Check for Invalid Date Orders (Order Date > Shipping/Due Dates)
--- Expectation: No Results
 SELECT 
     * 
 FROM cleaning.crm_sales_details
@@ -97,7 +84,6 @@ WHERE sls_order_dt > sls_ship_dt
    OR sls_order_dt > sls_due_dt;
 
 -- Check Data Consistency: Sales = Quantity * Price
--- Expectation: No Results
 SELECT DISTINCT 
     sls_sales,
     sls_quantity,
@@ -112,11 +98,8 @@ WHERE sls_sales != sls_quantity * sls_price
    OR sls_price <= 0
 ORDER BY sls_sales, sls_quantity, sls_price;
 
--- ====================================================================
 -- Checking 'cleaning.erp_cust_az12'
--- ====================================================================
 -- Identify Out-of-Range Dates
--- Expectation: Birthdates between 1924-01-01 and Today
 SELECT DISTINCT 
     bdate 
 FROM cleaning.erp_cust_az12
@@ -128,21 +111,16 @@ SELECT DISTINCT
     gen 
 FROM cleaning.erp_cust_az12;
 
--- ====================================================================
 -- Checking 'cleaning.erp_loc_a101'
--- ====================================================================
 -- Data Standardization & Consistency
 SELECT DISTINCT 
     cntry 
 FROM cleaning.erp_loc_a101
 ORDER BY cntry;
 
--- ====================================================================
 -- Checking 'cleaning.erp_px_cat_g1v2'
--- ====================================================================
 -- Check for Unwanted Spaces
--- Expectation: No Results
-SELECT 
+FSELECT 
     * 
 FROM cleaning.erp_px_cat_g1v2
 WHERE cat != TRIM(cat) 
