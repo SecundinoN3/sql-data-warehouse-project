@@ -12,9 +12,6 @@ Details:
     * staging: For raw, unprocessed data imports
     * cleaning: For data transformation and quality checks
     * business_intelligence: For final, analysis-ready tables and views
-
-Note: This is a destructive operation that will permanently delete 
-      any data in the database.
 */
 
 USE master;
