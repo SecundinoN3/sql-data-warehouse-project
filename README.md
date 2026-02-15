@@ -8,11 +8,12 @@ This project demonstrates my understanding of data warehousing and analytics sol
 Objective: Develop a data warehouse using SQL Server for sales data, enabling analytucal reporting and informed decision making for BI.
 
 Specifics:
--Data Sources: Two source systems (ERP and CRM) provided as CSV files
--Data Quality: cleaned and resolved data quality issues prior to analysis
--Integration: Combine both sources into a single, user-friendly dta model designed for analytical queries
--scope: Focus on the latest dataset only(No historization done)
--Documentations: Provide clear documentation of the data model to support both business stakeholder and analytcs teams
+
+ -Data Sources: Two source systems (ERP and CRM) provided as CSV files
+ -Data Quality: cleaned and resolved data quality issues prior to analysis
+ -Integration: Combine both sources into a single, user-friendly data model designed for analytical queries
+ -scope: Focus on the latest dataset only(No historization done)
+ -Documentations: Provide clear documentation of the data model to support both business stakeholder and analytcs teams
 
 ---
 
