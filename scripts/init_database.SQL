@@ -3,13 +3,11 @@ Script: Create Data Warehouse Database and Schemas
 
 Purpose:
   This script initializes a new data warehouse environment by:
-  1. Dropping the existing 'DataWarehouse' database if it exists
-  2. Creating a new 'DataWarehouse' database
-  3. Setting up three schemas for data pipeline organization
+  1. Creating a new 'DataWarehouse' database if non existent
+  2. Setting up three schemas for data pipeline organization
 
 Details:
-  - If 'DataWarehouse' exists, it forces all connections to close 
-    (using SINGLE_USER mode with immediate rollback) before dropping it
+  - If 'DataWarehouse' doesnt exist makes 'DataWarehouse' database
   - Creates three schemas to support a typical ETL/ELT workflow:
     * staging: For raw, unprocessed data imports
     * cleaning: For data transformation and quality checks
