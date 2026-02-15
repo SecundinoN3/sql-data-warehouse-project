@@ -24,8 +24,12 @@ Specifics:
 BI: ANALYTICS & REPORTING (Data Analytics)
 
 Objective: Develop SQL-based analytiscs to deliver detaield insights into:
+
+
 -Customer Behavior
+
 -Product Performance
+
 -Sales Trends
 
 ---
