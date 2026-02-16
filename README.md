@@ -15,7 +15,7 @@ Specifics:
 
  -Integration: Combine both sources into a single, user-friendly data model designed for analytical queries
  
- -scope: Focus on the latest dataset only(No historization done)
+ -Scope: Focus on the latest dataset only(No historization done)
  
  -Documentations: Provide clear documentation of the data model to support both business stakeholder and analytcs teams
 
