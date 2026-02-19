@@ -5,7 +5,7 @@ This project demonstrates my understanding of data warehousing and analytics sol
 
 (DATA ENGINEERING)
 
-Objective: Develop a data warehouse using SQL Server for sales data, enabling analytucal reporting and informed decision making for BI.
+Objective: Develop a data warehouse using SQL Server for sales data, enabling analytical reporting and informed decision making for BI.
 
 Specifics:
 
